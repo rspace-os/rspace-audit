@@ -1,15 +1,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
+  <artifactId>rspace-audit</artifactId>
+  <version>0.14.1</version>
+  <name>RSpace Audit trail</name>
+
   <parent>
     <artifactId>rspace-parent</artifactId>
     <groupId>com.github.rspace-os</groupId>
     <version>2.0.1</version>
   </parent>
-  <artifactId>rspace-audit</artifactId>
-  <version>0.14.0</version>
-  <name>RSpace Audit trail</name>
+
+  <repositories>
+    <repository>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
+    </repository>
+  </repositories>
+
   <build>
     <plugins>
       <plugin>
@@ -36,10 +46,6 @@
           <release>11</release>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-toolchains-plugin</artifactId>
-      </plugin>
     </plugins>
   </build>
 
@@ -47,8 +53,9 @@
     <dependency>
       <groupId>com.github.rspace-os</groupId>
       <artifactId>rspace-core-util</artifactId>
-      <version>0.26.0</version>
+      <version>1.0.1</version>
     </dependency>
+
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-annotations</artifactId>
@@ -103,7 +110,9 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
   <properties>
     <commons.collections.version>4.4</commons.collections.version>
   </properties>
+
 </project>
