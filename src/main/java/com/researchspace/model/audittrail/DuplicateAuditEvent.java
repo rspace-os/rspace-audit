@@ -9,7 +9,7 @@ import lombok.Getter;
  * Audits a duplicate event when an object is copied.
  *
  */
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 public class DuplicateAuditEvent extends RenameAuditEvent {
 
   private @Getter Map<?,?>originalToCopy;

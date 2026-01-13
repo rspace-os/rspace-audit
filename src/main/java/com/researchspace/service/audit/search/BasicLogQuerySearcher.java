@@ -13,8 +13,8 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.commons.io.filefilter.RegexFileFilter;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.time.StopWatch;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.StopWatch;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -123,7 +123,7 @@ public class BasicLogQuerySearcher implements IAuditFileSearch {
 
 			}
 		} catch (IOException | ParseException e) {
-			e.printStackTrace();
+			log.warn("parsing problem", e);
 		}
 
     Comparator<LogLine> sorter = getComparator(pgCrit, hits);

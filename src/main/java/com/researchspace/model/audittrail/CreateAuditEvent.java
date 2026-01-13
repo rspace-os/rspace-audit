@@ -1,6 +1,6 @@
 package com.researchspace.model.audittrail;
 
-import static org.apache.commons.lang.StringUtils.EMPTY;
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 import com.researchspace.model.core.Person;
 

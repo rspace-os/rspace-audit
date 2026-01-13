@@ -2,7 +2,7 @@ package com.researchspace.model.audittrail;
 
 import static com.researchspace.core.util.TransformerUtils.toList;
 
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 
 import com.researchspace.model.core.Person;
 

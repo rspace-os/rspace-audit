@@ -2,12 +2,12 @@ package com.researchspace.model.audittrail;
 
 import com.researchspace.model.core.Person;
 import lombok.EqualsAndHashCode;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Audits a rename event when an object is copied.
  */
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 public class RenameAuditEvent extends MoveAuditEvent {
 
   public RenameAuditEvent(Person subject, Object item, String oldName, String newName) {
