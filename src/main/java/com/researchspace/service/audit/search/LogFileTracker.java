@@ -13,7 +13,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -24,7 +23,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.io.input.ReversedLinesFileReader;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.researchspace.core.util.DateRange;
@@ -116,8 +115,7 @@ public class LogFileTracker implements ILogResourceTracker {
 			currentLogFileCount.set(allLogs.size());
 			logDateRanges.clear();
 		}
-		List<File> toSort = new ArrayList<>();
-    toSort.addAll(allLogs);
+    List<File> toSort = new ArrayList<>(allLogs);
 		toSort.sort(new LogFileComparator());
 		for (int i = 0; i < toSort.size(); i++) {
 			File f = toSort.get(i);
@@ -131,7 +129,7 @@ public class LogFileTracker implements ILogResourceTracker {
 					DateRange dr = new DateRange(start, end);
 					logDateRanges.put(f.getName(), dr);
 				} catch (IOException | ParseException e) {
-					e.printStackTrace();
+					log.warn("parsing problem", e);
 				}
       } else if (i == 0) {
 				log.info("Setting current logfile as {}", currentFile);
@@ -144,7 +142,7 @@ public class LogFileTracker implements ILogResourceTracker {
 	
 
 	private Date getEndDate(File f) throws IOException, ParseException {
-		try (ReversedLinesFileReader reader = new ReversedLinesFileReader(f)) {
+		try (ReversedLinesFileReader reader = ReversedLinesFileReader.builder().setFile(f).get()) {
 			String line = reader.readLine();
 			SimpleDateFormat logTimeStampFormat = new SimpleDateFormat(BasicLogQuerySearcher.DATE_FORMAT);
 			Matcher m = timestamp.matcher(line);
