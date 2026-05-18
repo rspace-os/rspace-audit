@@ -9,7 +9,7 @@ public enum AuditDomain {
 	/** 
 	 * Inventory domains 
 	 */
-	INV_SAMPLE, INV_SUBSAMPLE, INV_CONTAINER,
+	INV_SAMPLE, INV_SUBSAMPLE, INV_CONTAINER, INV_INSTRUMENT,
 	/**
 	 * A general term for workspace/ all resources
 	 */
