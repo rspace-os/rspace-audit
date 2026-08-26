@@ -1,1 +1,1 @@
-Rspace audit trail package. Generates an audit trail from log file entries. 
+The code from the project has been moved to `rspace-web`, and this project has been archived.
